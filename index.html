@@ -17,6 +17,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            /* Añadido para posicionar las imágenes */
         }
 
         header {
@@ -28,6 +30,10 @@
             text-align: center;
             border-bottom: 2px solid #000;
             /* Borde inferior negro */
+            position: relative;
+            /* Añadido para posicionar las imágenes */
+            z-index: 1;
+            /* Añadido para que esté por encima de las imágenes */
         }
 
         h1 {
@@ -40,12 +46,41 @@
             flex-direction: column;
             align-items: center;
             margin: 20px;
+            position: relative;
+            /* Añadido para posicionar las imágenes */
+            z-index: 1;
+            /* Añadido para que esté por encima de las imágenes */
         }
 
-        .photo-section img {
+        .corner-image {
+            position: absolute;
+            width: 150px;
+            transform: rotate(-20deg);
+            /* Girar la imagen -20 grados */
+            z-index: 0;
+            /* Añadido para que esté detrás del contenido */
+            bottom: -80px;
+            /* Añadido para bajar las imágenes */
+        }
+
+        .corner-image.left {
+            left: 20px;
+            /* Añadido para posicionar la imagen a la izquierda */
+        }
+
+        .corner-image.right {
+            right: 20px;
+            /* Añadido para posicionar la imagen a la derecha */
+            transform: rotate(20deg);
+            /* Girar la imagen 20 grados */
+        }
+
+        .photo-section {
             max-width: 80%;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            /* Espacio inferior para separar las secciones */
         }
 
         .message-section {
@@ -83,12 +118,17 @@
 <body>
     <header>
         <h1>Happy Anniversary, Mi Amor!</h1>
+        <!-- Imágenes en las esquinas orientadas oblicuamente -->
+        <img src="./image/monos.jpg" alt="Esquina izquierda" class="corner-image left">
+        <img src="./image/monos.jpg" alt="Esquina derecha" class="corner-image right">
     </header>
+
     <main>
         <section class="photo-section">
-            <img src="https://drive.google.com/uc?export=view&id=1B1UR2WlqV5lOs53_bJJFsWHov0V_IrAc"
-                alt="Foto de mi amor">
+            <img src="./image/amor.jpeg" alt="Foto de mi amor"
+                style="max-width: 100%; border-radius: 10px; height: 350px;">
         </section>
+
         <section class="message-section">
             <p>Today we celebrate another year together, and I can't help but feel immensely fortunate to have you by my
                 side. From the very first moment I found you, I knew you were special. You have been my faithful
@@ -104,8 +144,10 @@
                 is nothing we can't achieve as long as we are together.</p>
             <p>Thank you for being you, for being that incredible person who fills my life with love and happiness. I
                 love you with all my heart, and I always will. Happy anniversary, my love.</p>
+            <p class="text-align:center;">2024-06-14 - Victor Valentín Zambrana García & Marie Paz Renegado Jumawan</p>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2024-06-14 - Victor Valentín Zambrana García & Marie Paz Renegado Jumawan</p>
     </footer>
